@@ -53,6 +53,11 @@ func ReadDefault(fname string) (*Config, error) {
 	return _read(fname, NewDefault())
 }
 
+// UsingReader reads a configuration file from Reader.
+func (c *Config) UsingReader(buf *bufio.Reader) (err error) {
+	return c.read(buf)
+}
+
 // * * *
 
 func (c *Config) read(buf *bufio.Reader) (err error) {
